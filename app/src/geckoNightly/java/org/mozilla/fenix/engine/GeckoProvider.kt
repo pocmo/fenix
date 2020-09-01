@@ -42,8 +42,8 @@ object GeckoProvider {
             .crashHandler(CrashHandlerService::class.java)
             .telemetryDelegate(GeckoAdapter())
             .contentBlocking(policy.toContentBlockingSetting())
-            .debugLogging(Config.channel.isDebug)
             .aboutConfigEnabled(true)
+            .debugLogging(Config.channel.isDebug)
             .build()
 
         val settings = context.components.settings

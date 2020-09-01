@@ -447,7 +447,7 @@ class HomeFragment : Fragment() {
             .map {
                 it.copy(
                     engineSession = null,
-                    engineSessionState = it.engineSession?.saveState()
+                    engineSessionState = null //it.engineSession?.saveState()
                 )
             }
             .let { SessionManager.Snapshot(it, selectedIndex) }
@@ -477,7 +477,7 @@ class HomeFragment : Fragment() {
     private fun removeTabAndShowSnackbar(sessionId: String) {
         sessionManager.findSessionById(sessionId)?.let { session ->
             val snapshot = sessionManager.createSessionSnapshot(session)
-            val state = snapshot.engineSession?.saveState()
+            val state = null //snapshot.engineSession?.saveState()
             val isSelected =
                 session.id == requireComponents.core.store.state.selectedTabId ?: false
 

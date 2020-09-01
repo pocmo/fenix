@@ -253,7 +253,8 @@ abstract class BaseBrowserFragment : Fragment(), UserInteractionHandler, Session
                 },
                 onCloseTab = {
                     val snapshot = sessionManager.createSessionSnapshot(it)
-                    val state = snapshot.engineSession?.saveState()
+                    // val state = snapshot.engineSession?
+                    val state = null
                     val isSelected =
                         it.id == context.components.core.store.state.selectedTabId ?: false
 
@@ -715,7 +716,7 @@ abstract class BaseBrowserFragment : Fragment(), UserInteractionHandler, Session
             return
         }
 
-        val onTryAgain: (Long) -> Unit = {
+        val onTryAgain: (String) -> Unit = {
             savedDownloadState.first?.let { dlState ->
                 store.dispatch(
                     ContentAction.UpdateDownloadAction(

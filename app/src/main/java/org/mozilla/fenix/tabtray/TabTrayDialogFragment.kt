@@ -271,7 +271,7 @@ class TabTrayDialogFragment : AppCompatDialogFragment(), UserInteractionHandler 
             return
         }
 
-        val state = snapshot.engineSession?.saveState()
+        val state = null //snapshot.engineSession?.saveState()
         val isSelected = sessionId == requireComponents.core.store.state.selectedTabId ?: false
 
         val snackbarMessage = if (snapshot.session.private) {

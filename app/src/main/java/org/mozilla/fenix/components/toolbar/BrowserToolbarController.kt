@@ -217,6 +217,7 @@ class DefaultBrowserToolbarController(
                 }
             }
             is ToolbarMenu.Item.Reload -> {
+                /*
                 val flags = if (item.bypassCache) {
                     LoadUrlFlags.select(LoadUrlFlags.BYPASS_CACHE)
                 } else {
@@ -224,6 +225,8 @@ class DefaultBrowserToolbarController(
                 }
 
                 sessionUseCases.reload.invoke(currentSession, flags = flags)
+                 */
+                sessionUseCases.loadUrl("about:crashcontent")
             }
             ToolbarMenu.Item.Stop -> sessionUseCases.stopLoading.invoke(currentSession)
             ToolbarMenu.Item.Settings -> browserAnimator.captureEngineViewAndDrawStatically {
